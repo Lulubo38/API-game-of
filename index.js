@@ -50,9 +50,6 @@ app.listen(port, () => {
   console.log(`Serveur lancé sur le port ${port}`);
 });
 
-const express = require("express");
-const app = express();
-
 // ...
 
 const errorHandler = require("./errorHandler");
