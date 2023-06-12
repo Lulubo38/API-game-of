@@ -14,7 +14,7 @@ app.use("/posts", postRoutes);
 app.use("/products", productRoutes);
 
 mongoose
-  .connect("mongodb://localhost:27017/mydatabase", {
+  .connect("mongodb://localhost:27017/cluster0", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -49,3 +49,14 @@ app.get("/characters/:name", (req, res) => {
 app.listen(port, () => {
   console.log(`Serveur lancé sur le port ${port}`);
 });
+
+const express = require("express");
+const app = express();
+
+// ...
+
+const errorHandler = require("./errorHandler");
+
+// ...
+
+app.use(errorHandler);
