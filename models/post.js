@@ -1,11 +1,17 @@
-const express = require("express");
+const mongoose = require("mongoose");
 
-const productController = require("../controller/product");
+const Schema = mongoose.Schema;
 
-const router = express.Router();
+// Un schéma détermine la structure du document en base
+const postSchema = new Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  content: {
+    type: String,
+    required: true,
+  },
+});
 
-router.get("/products", productController.getProducts);
-
-router.post("/product", productController.createProduct);
-
-module.exports = router;
+module.exports = mongoose.model("Post", postSchema);
